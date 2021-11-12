@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    user-select: none;
+    font-family: 'Poppins', sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    background: url(./img/bg4.jpg);
+    object-fit: cover;
+    background-size: cover;
+    background-position:center;
+
+}
+.fade-in {
+    animation: fadeIn 1s ease
+}
+.header{
+    display: grid;
+    width: 100%;
+    height: 2rem;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(4,4,8,0.7572071064754027) 100%, rgba(0,212,255,1) 100%);
+    justify-items: start;
+    padding-left: 1rem;
+}
+.header a:link{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+.header a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+.header a:hover{
+    color: red;
+    text-decoration: underline;
+}
+.header a:active{
+    color: yellow;
+    text-decoration: underline;
+}
+.container{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+}
+.chess-table{
+    display: grid;
+    border: 10px double #000;
+    grid-template-columns:repeat( 8, 55px);
+    box-shadow:0 8px 8px rgb(0 0 0 / 65%);
+
+
+}
+
+.piece-box{
+    display: grid;
+    border: 1px solid black;
+    height: 55px;
+    justify-items: center;
+    align-items: center;
+  
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+.piece{
+    height: 48px;
+    width: 45px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+.piece:hover{
+    transform: scale(1.2);
+}
+
+.piece-box-text {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: #444;
+    opacity: 0.9;
+}
+
+/** ####################################### */
+.piece-box.black-box{
+    background: url(./img/wood.jpg) no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    background-position:center;
+}
+.piece-box.white-box{
+    background: url(./img/wood1.jpg);
+    object-fit: cover;
+    background-size: cover;
+    background-position:center;
+}
+
+.piece-box.piece-selected {
+    background: rgb(255,255,0);
+    cursor: grab;
+}
+.piece-box.piece-ready {
+    background: rgb(0,255,0);
+    cursor: -webkit-grabbing;
+    cursor:    -moz-grabbing;
+    cursor:         grabbing;
+}
+.piece.piece-ready{
+    transform: scale(1.2);
+}
+.piece-box.piece-potential {
+    background: rgb(24, 155, 236);
+    border: 0.1px solid #000;
+    border-radius: 50%;
+    
+}
+.piece-box.piece-not-allowed {
+    background: rgb(228, 5, 5);
+    cursor: not-allowed;
+}
+.piece-box.piece-pointer {
+    cursor: pointer;
+}
+/**check mate message win */
+
+.chess-message .check-mate-message {
+    position: absolute;
+    width: 200px;
+    left: calc(-142px + 50vw);
+    top: calc(-10px + 50vh);
+    text-align: center;
+    padding: 10px 50px;
+}
+.chess-message .black-wins {
+    display: none;
+    background: black;
+    color: white;
+    box-shadow: 0 0 150px 75px white;
+    border-radius: 5px;
+}
+.chess-message .black-wins a:link, a:visited{
+    background-color: white;
+    color: black;
+    border: 2px solid crimson;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.chess-message .black-wins a:hover, a:active{
+    background-color: crimson;
+    color: white;
+}
+.chess-message .white-wins {
+    display: none;
+    background: white;
+    color: black;
+    box-shadow: 0 0 150px 75px black;
+    border-radius: 5px;
+}
+.chess-message .white-wins a:link, a:visited{
+    background-color: white;
+    color: black;
+    border: 2px solid crimson;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.chess-message .white-wins a:hover, a:active{
+    background-color: crimson;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .chess-table{
+        display: grid;
+        grid-template-columns:repeat( 8, 40px);
+    }
+    .piece-box{
+        height: 40px;
+    }
+    .piece{
+        height: 38px;
+        width: 35px;
+
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .chess-table{
+        display: grid;
+        grid-template-columns:repeat( 8, 30px);
+    }
+    .piece-box{
+        height: 30px;
+    }
+    .piece{
+        height: 28px;
+        width: 25px;
+        -webkit-filter: drop-shadow(5px 5px 5px #222);
+        filter: drop-shadow(5px 5px 5px #222);
+    }
+  }
